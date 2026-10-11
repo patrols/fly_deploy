@@ -851,7 +851,7 @@ defmodule FlyDeploy.Orchestrator do
   end
 
   defp list_s3_objects(bucket, prefix) do
-    url = "#{s3_endpoint()}/#{bucket}?list-type=2&prefix=#{URI.encode(prefix)}"
+    url = "#{s3_endpoint()}/#{bucket}?list-type=2&prefix=#{URI.encode_www_form(prefix)}"
 
     case Req.get(url,
            receive_timeout: 10_000,
